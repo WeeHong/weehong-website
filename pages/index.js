@@ -27,19 +27,25 @@ export default function Home() {
       <main className={`${styles.container} ${styles.main}`}>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl my-2">Wee Hong KOH</h1>
+            <h1 className="text-4xl font-bold my-2">Wee Hong KOH</h1>
             <h2 className="text-2xl">Software Engineer</h2>
             <div className="mt-5">
-              <a className="text-indigo-500" href="https://github.com/WeeHong/">
+              <a
+                className="text-accent hover:text-yellow-500"
+                href="https://github.com/WeeHong/"
+              >
                 GitHub
               </a>
               <a
-                className="text-indigo-500 px-5"
+                className="text-accent hover:text-yellow-500 px-5"
                 href="https://www.linkedin.com/in/weehongayden/"
               >
                 LinkedIn
               </a>
-              <a className="text-indigo-500" href="https://medium.weehong.me/">
+              <a
+                className="text-accent hover:text-yellow-500"
+                href="https://medium.weehong.me/"
+              >
                 Medium
               </a>
             </div>
