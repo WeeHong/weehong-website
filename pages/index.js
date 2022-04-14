@@ -8,19 +8,20 @@ export default function Home() {
       <Head>
         <title>Wee Hong KOH - Software Engineer</title>
         <link rel="icon" href="/favicon.ico" />
-        <NextSeo
-          title="Wee Hong KOH - Software Engineer"
-          description="Wee Hong KOH, a software engineer who enjoy to get his hand as dirty as possible"
-          canonical="https://www.weehong.me/"
-          openGraph={{
-            url: "https://www.weehong.me/",
-            title: "Wee Hong KOH - Software Engineer",
-            description:
-              "Wee Hong KOH, a software engineer who enjoy to get his hand as dirty as possible",
-            site_name: "Wee Hong KOH - Software Engineer",
-          }}
-        />
       </Head>
+
+      <NextSeo
+        title="Wee Hong KOH - Software Engineer"
+        description="Wee Hong KOH, a software engineer who enjoy to get his hand as dirty as possible"
+        canonical="https://www.weehong.me/"
+        openGraph={{
+          url: "https://www.weehong.me/",
+          title: "Wee Hong KOH - Software Engineer",
+          description:
+            "Wee Hong KOH, a software engineer who enjoy to get his hand as dirty as possible",
+          site_name: "Wee Hong KOH - Software Engineer",
+        }}
+      />
 
       <main className={`${styles.container} ${styles.main}`}>
         <h1 className="text-4xl my-2">Wee Hong KOH</h1>
