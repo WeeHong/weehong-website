@@ -13,13 +13,13 @@ export default function Home() {
 
       <NextSeo
         title="Wee Hong KOH - Software Engineer"
-        description="Wee Hong KOH is a software engineer who enjoys writing code to automate stuff and keep my life as lazy as possible."
+        description="Wee Hong KOH is a software engineer who enjoys writing code to automate stuff and keep his life as lazy as possible."
         canonical="https://www.weehong.me/"
         openGraph={{
           url: "https://www.weehong.me/",
           title: "Wee Hong KOH - Software Engineer",
           description:
-            "Wee Hong KOH is a software engineer who enjoys writing code to automate stuff and keep my life as lazy as possible.",
+            "Wee Hong KOH is a software engineer who enjoys writing code to automate stuff and keep his life as lazy as possible.",
           site_name: "Wee Hong KOH - Software Engineer",
         }}
       />

@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Square+Peg&family=Syne&display=swap');
-
 * {
     font-family: "Noto Sans", sans-serif;
 }
