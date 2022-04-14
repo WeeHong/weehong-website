@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         accent: "#2f80ed",
       },
+      fontFamily: {
+        sans: ["'Noto Sans'", "Acme"],
+      },
     },
   },
   plugins: [],
