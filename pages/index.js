@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
@@ -20,8 +21,6 @@ export default function Home() {
           }}
         />
       </Head>
-
-      <Navbar />
 
       <main className={`${styles.container} ${styles.main}`}>
         <h1 className="text-4xl my-2">Wee Hong KOH</h1>
