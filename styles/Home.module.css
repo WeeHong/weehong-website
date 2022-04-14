@@ -4,12 +4,7 @@
 
 .main {
   min-height: calc(100vh - 64px);
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 4rem;
 }
 
 .footer {
@@ -112,5 +107,9 @@
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .main {
+    padding: 1rem;
   }
 }
