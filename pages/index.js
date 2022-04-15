@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-import { renderLayout, useLanguages } from "../components/Language";
+import { renderLayout, useLanguages } from "../components/GitHubStats";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ languages }) {
@@ -53,9 +53,9 @@ export default function Home({ languages }) {
                 Medium
               </a>
             </div>
-            <div className="relative w-full h-48 ">
-              <div className="flex flex-col justify-center items-center">
-                <h3 className="mt-10 my-7">Most Used Programming Languages</h3>
+            <div className="flex justify-center items-center border border-slate-300 px-8 py-5 rounded mt-5">
+              <div>
+                <h3 className="mb-7">Most Used Programming Languages</h3>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: renderLayout(langs, 300, totalLanguageSize),
@@ -77,7 +77,7 @@ export default function Home({ languages }) {
 export async function getServerSideProps(context) {
   const exclude_repo = [];
 
-  const res = await Axios.post("http://localhost:3000/api/github", {
+  const res = await Axios.post(`${process.env.NEXT_PUBLIC_URL}/api/github`, {
     username: process.env.GITHUB_USER,
     url: process.env.GITHUB_API_URL,
     token: process.env.GITHUB_PERSONAL_TOKEN,
