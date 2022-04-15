@@ -29,9 +29,7 @@ export default function Home({ languages }) {
       <main className={`${styles.container} ${styles.main}`}>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-[Acme] font-bold my-2">
-              Wee Hong KOH
-            </h1>
+            <h1 className="text-4xl font-bold my-2">Wee Hong KOH</h1>
             <h2 className="text-2xl">Software Engineer</h2>
             <div className="mt-5">
               <a
