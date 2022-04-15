@@ -1,9 +1,11 @@
+import Axios from "axios";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-import Image from "next/image";
+import { renderLayout, useLanguages } from "../components/Language";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Home({ languages }) {
+  const { langs, totalLanguageSize } = useLanguages(languages, [], 5);
   return (
     <div>
       <Head>
@@ -51,16 +53,82 @@ export default function Home() {
                 Medium
               </a>
             </div>
-            <div className="relative w-full h-48 mt-5">
-              <Image
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=WeeHong&layout=compact"
-                alt="Most Used Programming Languages"
-                layout="fill"
-              />
+            <div className="relative w-full h-48 ">
+              <div className="flex flex-col justify-center items-center">
+                <h3 className="mt-10 my-7">Most Used Programming Languages</h3>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: renderLayout(langs, 300, totalLanguageSize),
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
       </main>
     </div>
   );
+}
+
+/* The GitHub Extraction function were copied from
+ * anuraghazra's repository, github-readme-stats
+ * https://github.com/anuraghazra/github-readme-stats
+ */
+export async function getServerSideProps(context) {
+  const exclude_repo = [];
+
+  const res = await Axios.post("http://localhost:3000/api/github", {
+    username: process.env.GITHUB_USER,
+    url: process.env.GITHUB_API_URL,
+    token: process.env.GITHUB_PERSONAL_TOKEN,
+  });
+
+  let repoNodes = res.data.data;
+  let repoToHide = {};
+
+  if (exclude_repo) {
+    exclude_repo.forEach((repoName) => {
+      repoToHide[repoName] = true;
+    });
+  }
+
+  repoNodes = repoNodes
+    .sort((a, b) => b.size - a.size)
+    .filter((name) => {
+      return !repoToHide[name.name];
+    });
+
+  repoNodes = repoNodes
+    .filter((node) => {
+      return node.languages.edges.length > 0;
+    })
+    .reduce((acc, curr) => curr.languages.edges.concat(acc), [])
+    .reduce((acc, prev) => {
+      let langSize = prev.size;
+
+      if (acc[prev.node.name] && prev.node.name === acc[prev.node.name].name) {
+        langSize = prev.size + acc[prev.node.name].size;
+      }
+      return {
+        ...acc,
+        [prev.node.name]: {
+          name: prev.node.name,
+          color: prev.node.color,
+          size: langSize,
+        },
+      };
+    }, {});
+
+  const topLangs = Object.keys(repoNodes)
+    .sort((a, b) => repoNodes[b].size - repoNodes[a].size)
+    .reduce((result, key) => {
+      result[key] = repoNodes[key];
+      return result;
+    }, {});
+
+  return {
+    props: {
+      languages: topLangs,
+    },
+  };
 }
