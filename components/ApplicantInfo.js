@@ -1,4 +1,5 @@
 import { PaperClipIcon } from "@heroicons/react/solid";
+import styles from "../styles/Home.module.css";
 
 const attachments = [
   {
@@ -7,21 +8,22 @@ const attachments = [
   },
 ];
 
-const ApplicantInfo = () => {
+const ApplicantInfo = ({ content }) => {
   return (
     <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 p-0 md:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
       <div className="space-y-6 lg:col-start-1 lg:col-span-2">
         {/* Description list*/}
         <section aria-labelledby="applicant-information-title">
           <div className="bg-white/50 shadow sm:rounded-lg">
-            <div className="px-4 py-5 sm:px-6">
+            <div className="px-4 py-5 sm:px-6 relative">
+              <div className={styles.titleBg}></div>
               <h2
                 id="applicant-information-title"
-                className="font-noto text-lg leading-6 font-medium text-gray-900"
+                className="font-noto text-lg leading-6 font-medium text-gray-900  relative z-10"
               >
                 Applicant Information
               </h2>
-              <p className="font-ibm mt-1 max-w-2xl text-sm text-gray-500">
+              <p className="font-ibm mt-1 max-w-2xl text-sm text-gray-500  relative z-10">
                 Personal details and application.
               </p>
             </div>
@@ -32,7 +34,7 @@ const ApplicantInfo = () => {
                     Position
                   </dt>
                   <dd className="font-ibm mt-1 text-sm text-gray-900">
-                    Backend Developer
+                    {content.Title}
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
@@ -44,7 +46,7 @@ const ApplicantInfo = () => {
                       className="text-accent"
                       href="mailto:weehongkane@gmail.com"
                     >
-                      weehongkane@gmail.com
+                      {content.Email}
                     </a>
                   </dd>
                 </div>
@@ -53,7 +55,7 @@ const ApplicantInfo = () => {
                     Nationality
                   </dt>
                   <dd className="font-ibm mt-1 text-sm text-gray-900">
-                    Malaysian/Singapore PR
+                    {content.Nationality}
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
@@ -61,18 +63,15 @@ const ApplicantInfo = () => {
                     Education
                   </dt>
                   <dd className="font-ibm mt-1 text-sm text-gray-900">
-                    B.S. in Information Technology
+                    {content.Education}
                   </dd>
                 </div>
                 <div className="sm:col-span-2">
                   <dt className="font-noto text-sm font-medium text-gray-500">
                     About
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900">
-                    I am a software engineer with 5+ years of experience in web
-                    development and experienced in API development, testing and
-                    debugging code. I am also equipped with the knowledge of
-                    CI/CD and software architecture design skillsets.
+                  <dd className="font-ibm mt-1 text-sm text-gray-900 whitespace-pre-line">
+                    {content.Description}
                   </dd>
                 </div>
                 <div className="sm:col-span-2">
@@ -84,30 +83,28 @@ const ApplicantInfo = () => {
                       role="list"
                       className="border border-gray-200 rounded-md divide-y divide-gray-200"
                     >
-                      {attachments.map((attachment) => (
-                        <li
-                          key={attachment.name}
-                          className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
-                        >
-                          <div className="w-0 flex-1 flex items-center">
-                            <PaperClipIcon
-                              className="flex-shrink-0 h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                            />
-                            <span className="ml-2 flex-1 w-0 truncate">
-                              {attachment.name}
-                            </span>
-                          </div>
-                          <div className="ml-4 flex-shrink-0">
-                            <a
-                              href={attachment.href}
-                              className="font-medium text-blue-600 hover:text-blue-500"
-                            >
-                              Download
-                            </a>
-                          </div>
-                        </li>
-                      ))}
+                      <li
+                        key={content.Attachments.Name}
+                        className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                      >
+                        <div className="w-0 flex-1 flex items-center">
+                          <PaperClipIcon
+                            className="flex-shrink-0 h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-2 flex-1 w-0 truncate">
+                            {content.Attachments.Name}
+                          </span>
+                        </div>
+                        <div className="ml-4 flex-shrink-0">
+                          <a
+                            href={content.Attachments.URL}
+                            className="font-medium text-blue-600 hover:text-blue-500"
+                          >
+                            Download
+                          </a>
+                        </div>
+                      </li>
                     </ul>
                   </dd>
                 </div>

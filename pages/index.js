@@ -1,14 +1,15 @@
 import Axios from "axios";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-import ApplicationInfo from "../components/ApplicationInfo";
+import ApplicationInfo from "../components/ApplicantInfo";
 import { renderLayout, useLanguages } from "../components/GitHubStats";
 import GitHub from "../icons/GitHub";
 import LinkedIn from "../icons/LinkedIn";
 import Medium from "../icons/Medium";
 import styles from "../styles/Home.module.css";
 
-const Home = ({ languages }) => {
+const Home = ({ languages, content }) => {
+  const { attributes: data } = content;
   const { langs, totalLanguageSize } = useLanguages(languages, [], 5);
   return (
     <div>
@@ -18,15 +19,14 @@ const Home = ({ languages }) => {
       </Head>
 
       <NextSeo
-        title="Wee Hong KOH - Software Engineer"
-        description="Wee Hong KOH is a software engineer who enjoys writing code to automate stuff and keep his life as lazy as possible."
+        title={`${data.Name} - ${data.Title}`}
+        description={`${data.Name} - ${data.Title}`}
         canonical="https://www.weehong.me/"
         openGraph={{
           url: "https://www.weehong.me/",
-          title: "Wee Hong KOH - Software Engineer",
-          description:
-            "Wee Hong KOH is a software engineer who enjoys writing code to automate stuff and keep his life as lazy as possible.",
-          site_name: "Wee Hong KOH - Software Engineer",
+          title: `${data.Name} - ${data.Title}`,
+          description: `${data.Description}`,
+          site_name: `${data.Name} - ${data.Title}`,
         }}
       />
 
@@ -35,8 +35,8 @@ const Home = ({ languages }) => {
           <div
             className={`flex flex-col justify-center items-center relative ${styles.introBg}`}
           >
-            <h1 className="text-4xl font-ibm font-bold my-2">Wee Hong KOH</h1>
-            <h2 className="text-2xl font-ibm">Software Engineer</h2>
+            <h1 className="text-4xl font-ibm font-bold my-2">{data.Name}</h1>
+            <h2 className="text-2xl font-ibm">{data.Title}</h2>
             <div className="flex mt-5">
               <a
                 className="text-accent hover:text-yellow-500"
@@ -77,8 +77,8 @@ const Home = ({ languages }) => {
             </div>
           </div>
           <div className="relative col-span-2 mt-5 md:mt-0">
-            <div className={styles.applicantBg}>
-              <ApplicationInfo />
+            <div>
+              <ApplicationInfo content={data} />
             </div>
           </div>
         </div>
@@ -96,13 +96,25 @@ export default Home;
 export const getServerSideProps = async (context) => {
   const exclude_repo = [];
 
-  const res = await Axios.post(`${process.env.NEXT_PUBLIC_URL}/api/github`, {
-    username: process.env.GITHUB_USER,
-    url: process.env.GITHUB_API_URL,
-    token: process.env.GITHUB_PERSONAL_TOKEN,
-  });
+  const githubStats = Axios.post(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/github`,
+    {
+      username: process.env.GITHUB_USER,
+      url: process.env.GITHUB_API_URL,
+      token: process.env.GITHUB_PERSONAL_TOKEN,
+    }
+  );
 
-  let repoNodes = res.data.data;
+  const strapiContent = Axios.get(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/about`
+  );
+
+  const [githubResp, strapiResp] = await Axios.all([
+    githubStats,
+    strapiContent,
+  ]);
+
+  let repoNodes = githubResp.data.data;
   let repoToHide = {};
 
   if (exclude_repo) {
@@ -148,6 +160,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       languages: topLangs,
+      content: strapiResp.data.data,
     },
   };
 };
