@@ -1,14 +1,14 @@
-export function clampValue(number, min, max) {
+export const clampValue = (number, min, max) => {
   // @ts-ignore
   if (Number.isNaN(parseInt(number))) return min;
   return Math.max(min, Math.min(number, max));
-}
+};
 
-export function lowercaseTrim(name) {
+export const lowercaseTrim = (name) => {
   return name.toLowerCase().trim();
-}
+};
 
-export function chunkArray(arr, perChunk) {
+export const chunkArray = (arr, perChunk) => {
   return arr.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / perChunk);
 
@@ -20,9 +20,9 @@ export function chunkArray(arr, perChunk) {
 
     return resultArray;
   }, []);
-}
+};
 
-export function flexLayout({ items, gap, direction, sizes = [] }) {
+export const flexLayout = ({ items, gap, direction, sizes = [] }) => {
   let lastSize = 0;
   // filter() for filtering out empty strings
   return items.filter(Boolean).map((item, i) => {
@@ -34,9 +34,9 @@ export function flexLayout({ items, gap, direction, sizes = [] }) {
     lastSize += size + gap;
     return `<g transform="${transform}">${item}</g>`;
   });
-}
+};
 
-export function measureText(str, fontSize = 10) {
+export const measureText = (str, fontSize = 10) => {
   // prettier-ignore
   const widths = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -68,4 +68,4 @@ export function measureText(str, fontSize = 10) {
       )
       .reduce((cur, acc) => acc + cur) * fontSize
   );
-}
+};

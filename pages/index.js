@@ -4,7 +4,7 @@ import Head from "next/head";
 import { renderLayout, useLanguages } from "../components/GitHubStats";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ languages }) {
+const Home = ({ languages }) => {
   const { langs, totalLanguageSize } = useLanguages(languages, [], 5);
   return (
     <div>
@@ -29,8 +29,8 @@ export default function Home({ languages }) {
       <main className={`${styles.container} ${styles.main}`}>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-bold my-2">Wee Hong KOH</h1>
-            <h2 className="text-2xl">Software Engineer</h2>
+            <h1 className="text-4xl font-ibm font-bold my-2">Wee Hong KOH</h1>
+            <h2 className="text-2xl font-ibm">Software Engineer</h2>
             <div className="mt-5">
               <a
                 className="text-accent hover:text-yellow-500"
@@ -53,7 +53,9 @@ export default function Home({ languages }) {
             </div>
             <div className="flex justify-center items-center border border-slate-300 px-8 py-5 rounded mt-5">
               <div>
-                <h3 className="mb-7">Most Used Programming Languages</h3>
+                <h3 className="font-ibm mb-7">
+                  Most Used Programming Languages
+                </h3>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: renderLayout(langs, 300, totalLanguageSize),
@@ -66,13 +68,15 @@ export default function Home({ languages }) {
       </main>
     </div>
   );
-}
+};
+
+export default Home;
 
 /* The GitHub Extraction function were copied from
  * anuraghazra's repository, github-readme-stats
  * https://github.com/anuraghazra/github-readme-stats
  */
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
   const exclude_repo = [];
 
   const res = await Axios.post(`${process.env.NEXT_PUBLIC_URL}/api/github`, {
@@ -129,4 +133,4 @@ export async function getServerSideProps(context) {
       languages: topLangs,
     },
   };
-}
+};

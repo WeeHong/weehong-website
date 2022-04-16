@@ -9,7 +9,8 @@ module.exports = {
         accent: "#2f80ed",
       },
       fontFamily: {
-        sans: ["'Noto Sans'", "Lobster"],
+        noto: ["'Noto Sans'", "sans-serif"],
+        ibm: ["'IBM Plex Mono'", "monospace"],
       },
     },
   },

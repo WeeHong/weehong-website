@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Nav from "../components/Navbar";
 import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -17,6 +18,7 @@ const MyApp = ({ Component, pageProps }) => {
         gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
         `}
       </Script>
+      <Nav />
       <Component {...pageProps} />
     </div>
   );
