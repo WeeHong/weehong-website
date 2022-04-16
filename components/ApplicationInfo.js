@@ -20,7 +20,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
+    <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 p-0 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
       <div className="space-y-6 lg:col-start-1 lg:col-span-2">
         {/* Description list*/}
         <section aria-labelledby="applicant-information-title">
@@ -64,7 +64,7 @@ export default function Example() {
                     Nationality
                   </dt>
                   <dd className="mt-1 text-sm text-gray-900">
-                    Malaysian / Singapore PR
+                    Malaysian/Singapore PR
                   </dd>
                 </div>
                 <div className="sm:col-span-1">

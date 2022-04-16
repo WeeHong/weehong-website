@@ -3,6 +3,9 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import ApplicationInfo from "../components/ApplicationInfo";
 import { renderLayout, useLanguages } from "../components/GitHubStats";
+import GitHub from "../icons/GitHub";
+import LinkedIn from "../icons/LinkedIn";
+import Medium from "../icons/Medium";
 import styles from "../styles/Home.module.css";
 
 const Home = ({ languages }) => {
@@ -29,30 +32,35 @@ const Home = ({ languages }) => {
 
       <main className={`${styles.container} ${styles.main}`}>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
-          <div className="flex flex-col items-center relative intro-bg">
+          <div
+            className={`flex flex-col items-center relative ${styles.introBg}`}
+          >
             <h1 className="text-4xl font-ibm font-bold my-2">Wee Hong KOH</h1>
             <h2 className="text-2xl font-ibm">Software Engineer</h2>
-            <div className="mt-5">
+            <div className="flex mt-5">
               <a
                 className="text-accent hover:text-yellow-500"
                 href="https://github.com/WeeHong/"
+                target="_blank"
               >
-                GitHub
+                <GitHub width="50" height="50" />
               </a>
               <a
                 className="text-accent hover:text-yellow-500 px-5"
                 href="https://www.linkedin.com/in/weehongayden/"
+                target="_blank"
               >
-                LinkedIn
+                <LinkedIn width="50" height="50" />
               </a>
               <a
                 className="text-accent hover:text-yellow-500"
                 href="https://medium.weehong.me/"
+                target="_blank"
               >
-                Medium
+                <Medium width="50" height="50" />
               </a>
             </div>
-            <div className="flex justify-center items-center px-8 py-5 rounded mt-5 bg-white/50 shadow">
+            <div className="flex justify-center items-center px-8 py-5 rounded mt-5 bg-white/50 shadow w-full md:w-auto">
               <div>
                 <h3 className="font-ibm mb-7">
                   Most Used Programming Languages
