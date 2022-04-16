@@ -57,7 +57,7 @@ const Navbar = () => {
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
+                className="font-ibm bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
               >
                 About
               </Disclosure.Button>
