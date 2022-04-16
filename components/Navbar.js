@@ -1,7 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -88,4 +88,6 @@ export default function Navbar() {
       )}
     </Disclosure>
   );
-}
+};
+
+export default Navbar;

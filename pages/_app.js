@@ -1,7 +1,7 @@
 import Script from "next/script";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <div>
       <Script
@@ -20,6 +20,6 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </div>
   );
-}
+};
 
 export default MyApp;

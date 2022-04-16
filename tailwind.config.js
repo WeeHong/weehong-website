@@ -9,7 +9,7 @@ module.exports = {
         accent: "#2f80ed",
       },
       fontFamily: {
-        sans: ["'Noto Sans'", "Acme"],
+        sans: ["'Noto Sans'", "Lobster"],
       },
     },
   },
