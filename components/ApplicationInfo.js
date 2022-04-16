@@ -20,7 +20,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 p-0 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
+    <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 p-0 md:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
       <div className="space-y-6 lg:col-start-1 lg:col-span-2">
         {/* Description list*/}
         <section aria-labelledby="applicant-information-title">
@@ -39,18 +39,18 @@ export default function Example() {
             <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
               <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                 <div className="sm:col-span-1">
-                  <dt className="text-sm font-medium text-gray-500">
+                  <dt className="font-noto text-sm font-medium text-gray-500">
                     Application for
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-900">
+                  <dd className="font-ibm mt-1 text-sm text-gray-900">
                     Backend Developer
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
-                  <dt className="text-sm font-medium text-gray-500">
+                  <dt className="font-noto text-sm font-medium text-gray-500">
                     Email address
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-900">
+                  <dd className="font-ibm mt-1 text-sm text-gray-900">
                     <a
                       className="text-accent"
                       href="mailto:weehongkane@gmail.com"
@@ -60,24 +60,26 @@ export default function Example() {
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
-                  <dt className="text-sm font-medium text-gray-500">
+                  <dt className="font-noto text-sm font-medium text-gray-500">
                     Nationality
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-900">
-                    Malaysian/Singapore PR
+                  <dd className="font-ibm mt-1 text-sm text-gray-900">
+                    Malaysian /Singapore PR
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
-                  <dt className="text-sm font-medium text-gray-500">
+                  <dt className="font-noto text-sm font-medium text-gray-500">
                     Education
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-900">
+                  <dd className="font-ibm mt-1 text-sm text-gray-900">
                     B.S. in Information Technology
                   </dd>
                 </div>
                 <div className="sm:col-span-2">
-                  <dt className="text-sm font-medium text-gray-500">About</dt>
-                  <dd className="mt-1 text-sm text-gray-900">
+                  <dt className="font-noto text-sm font-medium text-gray-500">
+                    About
+                  </dt>
+                  <dd className="font-ibm mt-1 text-sm text-gray-900">
                     I am a software engineer with 5+ years of experience in web
                     development and experienced in API development, testing and
                     debugging code. I am also equipped with the knowledge of
@@ -85,10 +87,10 @@ export default function Example() {
                   </dd>
                 </div>
                 <div className="sm:col-span-2">
-                  <dt className="text-sm font-medium text-gray-500">
+                  <dt className="font-noto text-sm font-medium text-gray-500">
                     Attachments
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-900">
+                  <dd className="font-ibm mt-1 text-sm text-gray-900">
                     <ul
                       role="list"
                       className="border border-gray-200 rounded-md divide-y divide-gray-200"

@@ -31,7 +31,7 @@ const Home = ({ languages }) => {
       />
 
       <main className={`${styles.container} ${styles.main}`}>
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
+        <div className="grid gap-0 grid-cols-1 md:gap-4 md:grid-cols-3">
           <div
             className={`flex flex-col items-center relative ${styles.introBg}`}
           >
@@ -73,7 +73,7 @@ const Home = ({ languages }) => {
               </div>
             </div>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 mt-5 md:mt-0">
             <ApplicationInfo />
           </div>
         </div>
