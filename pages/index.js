@@ -93,7 +93,12 @@ export default Home;
  * anuraghazra's repository, github-readme-stats
  * https://github.com/anuraghazra/github-readme-stats
  */
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async ({ req, res }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+
   const exclude_repo = [];
 
   const githubStats = Axios.post(
