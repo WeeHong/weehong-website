@@ -42,6 +42,7 @@ const Home = ({ languages }) => {
                 className="text-accent hover:text-yellow-500"
                 href="https://github.com/WeeHong/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <GitHub width="50" height="50" />
               </a>
@@ -49,6 +50,7 @@ const Home = ({ languages }) => {
                 className="text-accent hover:text-yellow-500 px-5"
                 href="https://www.linkedin.com/in/weehongayden/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <LinkedIn width="50" height="50" />
               </a>
@@ -56,6 +58,7 @@ const Home = ({ languages }) => {
                 className="text-accent hover:text-yellow-500"
                 href="https://medium.weehong.me/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <Medium width="50" height="50" />
               </a>
