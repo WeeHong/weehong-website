@@ -1,12 +1,5 @@
 import { PaperClipIcon } from "@heroicons/react/solid";
 
-const user = {
-  name: "Whitney Francis",
-  email: "whitney@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
-};
-
 const attachments = [
   {
     name: "weehong-resume-2020-04-16.pdf",
@@ -14,11 +7,7 @@ const attachments = [
   },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function Example() {
+const ApplicantInfo = () => {
   return (
     <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 p-0 md:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
       <div className="space-y-6 lg:col-start-1 lg:col-span-2">
@@ -40,7 +29,7 @@ export default function Example() {
               <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                 <div className="sm:col-span-1">
                   <dt className="font-noto text-sm font-medium text-gray-500">
-                    Application for
+                    Position
                   </dt>
                   <dd className="font-ibm mt-1 text-sm text-gray-900">
                     Backend Developer
@@ -64,7 +53,7 @@ export default function Example() {
                     Nationality
                   </dt>
                   <dd className="font-ibm mt-1 text-sm text-gray-900">
-                    Malaysian /Singapore PR
+                    Malaysian/Singapore PR
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
@@ -129,4 +118,6 @@ export default function Example() {
       </div>
     </div>
   );
-}
+};
+
+export default ApplicantInfo;
