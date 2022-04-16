@@ -76,8 +76,10 @@ const Home = ({ languages }) => {
               </div>
             </div>
           </div>
-          <div className="col-span-2 mt-5 md:mt-0">
-            <ApplicationInfo />
+          <div className="relative col-span-2 mt-5 md:mt-0">
+            <div className={styles.applicantBg}>
+              <ApplicationInfo />
+            </div>
           </div>
         </div>
       </main>
