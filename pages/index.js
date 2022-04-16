@@ -33,7 +33,7 @@ const Home = ({ languages }) => {
       <main className={`${styles.container} ${styles.main}`}>
         <div className="grid gap-0 grid-cols-1 md:gap-4 md:grid-cols-3">
           <div
-            className={`flex flex-col items-center relative ${styles.introBg}`}
+            className={`flex flex-col justify-center items-center relative ${styles.introBg}`}
           >
             <h1 className="text-4xl font-ibm font-bold my-2">Wee Hong KOH</h1>
             <h2 className="text-2xl font-ibm">Software Engineer</h2>

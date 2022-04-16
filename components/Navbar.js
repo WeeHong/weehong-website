@@ -6,7 +6,7 @@ const Navbar = () => {
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-16">
             <div className="flex justify-between h-16">
               <div className="flex ml-auto">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
