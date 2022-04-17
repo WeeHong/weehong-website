@@ -94,7 +94,7 @@ export const getStaticPaths = async () => {
     }
   );
 
-  const paths = blogs.data.data.data.map((blog) => {
+  const paths = blogs.data.data.map((blog) => {
     return {
       params: {
         id: blog.attributes.Slug,
@@ -111,7 +111,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const blog = await Axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${id}`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs/${id}?populate=Tags`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
+      },
+    }
   );
   return {
     props: {
