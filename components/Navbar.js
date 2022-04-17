@@ -39,7 +39,7 @@ const Navbar = () => {
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-16">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4">
             <div className="flex justify-between h-16">
               <div className="flex ml-auto">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
@@ -98,9 +98,9 @@ const Navbar = () => {
                         <LinkItem
                           className={classNames(
                             router.asPath === item.href || router.asPath == "/#"
-                              ? "bg-red-500"
-                              : "hover:bg-theme hover:bg-opacity-75",
-                            "text-white rounded-md py-2 px-3 text-sm font-medium block"
+                              ? "border-l-2 border-indigo-500"
+                              : "border-transparent hover:border-indigo-200 hover:border-opacity-75",
+                            "text-gray-500 py-2 px-3 text-sm font-medium block"
                           )}
                           aria-current={item.current ? "page" : undefined}
                           onClick={() => close()}

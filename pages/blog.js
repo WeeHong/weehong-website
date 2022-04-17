@@ -37,11 +37,13 @@ const Blog = ({ content: blogs }) => {
                         </span>
                       ))}
                     </div>
-                    <Link href={"/blogs/" + content.Slug} passHref>
-                      <h5 className="font-ibm text-gray-900 font-bold text-2xl tracking-tight mb-2">
-                        {content.Title}
-                      </h5>
-                    </Link>
+                    <div className={styles.titleBg}>
+                      <Link href={"/blogs/" + content.Slug} passHref>
+                        <h5 className="font-ibm text-gray-900 font-bold text-2xl tracking-tight mb-2">
+                          {content.Title}
+                        </h5>
+                      </Link>
+                    </div>
                     <p className="font-normal text-gray-700 mb-3">
                       {content.ShortDescription}
                     </p>
