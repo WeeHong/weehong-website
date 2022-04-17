@@ -10,11 +10,11 @@
 .introBg::before {
   content: "";
   position: absolute;
-  background-image: url("../public/background-1.webp");
+  background-image: url("../public/images/background-1.webp");
   background-size: contain;
   background-repeat: no-repeat;
   width: 20rem;
-  height: 20rem;;
+  height: 20rem;
   top: 0;
   left: 2rem;
   z-index: -2;
@@ -22,7 +22,7 @@
 
 .titleBg {
   position: absolute;
-  background-image: url("../public/title-bg.webp");
+  background-image: url("../public/images/title-bg.webp");
   background-repeat: no-repeat;
   background-size: 33% 33%;
   background-position: top left;

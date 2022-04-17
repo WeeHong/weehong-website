@@ -5,7 +5,6 @@
 .main {
   min-height: calc(100vh - 64px);
   padding: 4rem;
-  width: 100%;
 }
 
 .titleBg {
@@ -23,6 +22,23 @@
   margin: 0.75rem 0 0.75rem 1rem;
   font-family: "Noto Sans", sans-serif;
   text-align: justify;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5 {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+}
+
+.markdown h1 {
+  font-size: 3rem;
+}
+
+.markdown h2 {
+  font-size: 2rem;
 }
 
 @media (max-width: 600px) {

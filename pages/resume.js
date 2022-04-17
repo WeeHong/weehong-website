@@ -36,7 +36,7 @@ const Resume = ({ content }) => {
 
       <div className="flex justify-center">
         <main className={`${styles.container} ${styles.main}`}>
-          <h1 className="text-4xl font-ibm font-bold my-2">
+          <h1 className="text-4xl font-ibm font-bold mb-10">
             Working Experience
           </h1>
           <div>
