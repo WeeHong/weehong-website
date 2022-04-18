@@ -89,13 +89,15 @@ const Blog = ({ content }) => {
                 // Return default child if it's not an image
                 return <p>{children}</p>;
               },
-              code({ className, children }) {
+              pre({ node }) {
+                const content = node.children[0].children[0].value;
+                const languages = node.children[0].properties.className[0];
                 // Removing "language-" because React-Markdown already added "language-"
                 const language =
-                  className && className.replace("language-", "");
+                  languages && languages.replace("language-", "");
                 return (
                   <SyntaxHighlighter style={materialDark} language={language}>
-                    {children[0]}
+                    {content}
                   </SyntaxHighlighter>
                 );
               },

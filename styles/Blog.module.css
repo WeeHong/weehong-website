@@ -59,7 +59,15 @@
 .markdown p {
   font-family: "Noto Sans", sans-serif;
   font-size: 1rem;
-  margin: 0.75rem 0;
+  margin: 1rem 0;
+  line-height: 1.75rem;
+}
+
+.markdown p > code {
+  background-color: lightgray;
+  padding: 0rem 0.5rem;
+  display: inline-block;
+  border-radius: 0.25rem;
 }
 
 .markdown a {
