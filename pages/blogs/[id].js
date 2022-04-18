@@ -1,5 +1,7 @@
 import Axios from "axios";
 import moment from "moment";
+import { NextSeo } from "next-seo";
+import Head from "next/head";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -10,74 +12,94 @@ import styles from "../../styles/Blog.module.css";
 const Blog = ({ content }) => {
   const { attributes: blog } = content;
   return (
-    <main className={`w-full ${styles.container} ${styles.main}`}>
-      <div className="flex">
-        <div className="flex flex-col flex-1">
-          <h1 className="text-4xl font-bold font-ibm">{blog.Title}</h1>
-          <h2 className="text-2xl font-ibm">{blog.ShortDescription}</h2>
+    <div>
+      <Head>
+        <title>Wee Hong KOH - {blog.Title}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <NextSeo
+        title={`Wee Hong KOH - ${blog.Title}`}
+        description="Wee Hong enjoys to writing code while learning new knowledge and write it into an article."
+        canonical={`https://www.weehong.me/${blog.Slug}`}
+        openGraph={{
+          url: `https://www.weehong.me/${blog.Slug}`,
+          title: `Wee Hong KOH - ${blog.Title}`,
+          description: `${blog.ShortDescription}`,
+          site_name: `Wee Hong KOH - ${blog.Title}`,
+        }}
+      />
+      <main className={`w-full ${styles.container} ${styles.main}`}>
+        <div className="flex">
+          <div className="flex flex-col flex-1">
+            <h1 className="text-4xl font-bold font-ibm">{blog.Title}</h1>
+            <h2 className="text-2xl font-ibm">{blog.ShortDescription}</h2>
+          </div>
+          <div className="flex items-end">
+            <span className="font-ibm text-sm text-gray-600">
+              Created At:{" "}
+              {moment(new Date(blog.createdAt)).format("DD MMM YYYY")}
+            </span>
+          </div>
         </div>
-        <div className="flex items-end">
-          <span className="font-ibm text-sm text-gray-600">
-            Created At: {moment(new Date(blog.createdAt)).format("DD MMM YYYY")}
-          </span>
+        <span></span>
+        <div className="flex my-3">
+          {blog.Tags.map((tag) => (
+            <span
+              className="rounded-full px-5 py-1 bg-indigo-500 text-white text-xs"
+              key={tag.Topic}
+            >
+              {tag.Topic}
+            </span>
+          ))}
         </div>
-      </div>
-      <span></span>
-      <div className="flex my-3">
-        {blog.Tags.map((tag) => (
-          <span
-            className="rounded-full px-5 py-1 bg-indigo-500 text-white text-xs"
-            key={tag.Topic}
-          >
-            {tag.Topic}
-          </span>
-        ))}
-      </div>
-      <div className="my-7">
-        <Image
-          src={blog.Image}
-          alt={`${blog.Slug}-image`}
-          width="100%"
-          height="50"
-          layout="responsive"
-        />
-      </div>
-      <div className={styles.markdown}>
-        <ReactMarkdown
-          components={{
-            p: ({ node, children }) => {
-              if (node.children[0].tagName === "img") {
-                const image = node.children[0];
+        <div className="my-7">
+          <Image
+            src={blog.Image}
+            alt={`${blog.Slug}-image`}
+            width="100%"
+            height="50"
+            layout="responsive"
+          />
+        </div>
+        <div className={styles.markdown}>
+          <ReactMarkdown
+            components={{
+              p: ({ node, children }) => {
+                if (node.children[0].tagName === "img") {
+                  const image = node.children[0];
+                  return (
+                    <div className="image">
+                      <Image
+                        src={`/images/${image.properties.src}`}
+                        alt={image.properties.alt}
+                        width="600"
+                        height="300"
+                      />
+                    </div>
+                  );
+                }
+                // Return default child if it's not an image
+                return <p>{children}</p>;
+              },
+              code({ className, children }) {
+                // Removing "language-" because React-Markdown already added "language-"
+                const language =
+                  className && className.replace("language-", "");
                 return (
-                  <div className="image">
-                    <Image
-                      src={`/images/${image.properties.src}`}
-                      alt={image.properties.alt}
-                      width="600"
-                      height="300"
-                    />
-                  </div>
+                  <SyntaxHighlighter style={materialDark} language={language}>
+                    {children[0]}
+                  </SyntaxHighlighter>
                 );
-              }
-              // Return default child if it's not an image
-              return <p>{children}</p>;
-            },
-            code({ className, children }) {
-              // Removing "language-" because React-Markdown already added "language-"
-              const language = className && className.replace("language-", "");
-              return (
-                <SyntaxHighlighter style={materialDark} language={language}>
-                  {children[0]}
-                </SyntaxHighlighter>
-              );
-            },
-          }}
-          remarkPlugins={[remarkGfm]}
-        >
-          {blog.Content}
-        </ReactMarkdown>
-      </div>
-    </main>
+              },
+            }}
+            remarkPlugins={[remarkGfm]}
+          >
+            {blog.Content}
+          </ReactMarkdown>
+        </div>
+      </main>
+    </div>
   );
 };
 
