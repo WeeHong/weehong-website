@@ -53,10 +53,9 @@ const Blog = ({ content: blogs }) => {
                               color.name.toLowerCase() ==
                               tag.Topic.toLowerCase()
                           );
-                          console.log("Color: ", color);
                           return (
                             <span
-                              className="rounded-full px-5 py-1 text-white text-xs"
+                              className={`inline-block rounded-full px-5 py-1 text-white text-xs ${styles.chips}`}
                               style={{ backgroundColor: color.color }}
                               key={tag.Topic}
                             >

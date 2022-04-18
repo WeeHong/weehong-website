@@ -17,6 +17,10 @@
   z-index: 0;
 }
 
+.chips + .chips {
+  margin-left: 0.5rem;
+}
+
 .markdown li {
   list-style: disc;
   margin: 0.75rem 0 0.75rem 1rem;
@@ -39,6 +43,12 @@
 
 .markdown h2 {
   font-size: 2rem;
+}
+
+.markdown p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1rem;
+  margin: 0.75rem 0;
 }
 
 @media (max-width: 600px) {

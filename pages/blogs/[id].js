@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
+import colors from "../../data/programming-color.json";
 import styles from "../../styles/Blog.module.css";
 
 const Blog = ({ content }) => {
@@ -30,10 +31,12 @@ const Blog = ({ content }) => {
         }}
       />
       <main className={`w-full ${styles.container} ${styles.main}`}>
-        <div className="flex">
+        <div className="flex flex-col sm:flex-row">
           <div className="flex flex-col flex-1">
             <h1 className="text-4xl font-bold font-ibm">{blog.Title}</h1>
-            <h2 className="text-2xl font-ibm">{blog.ShortDescription}</h2>
+            <h2 className="text-2xl font-ibm my-4 sm:my-2">
+              {blog.ShortDescription}
+            </h2>
           </div>
           <div className="flex items-end">
             <span className="font-ibm text-sm text-gray-600">
@@ -42,16 +45,21 @@ const Blog = ({ content }) => {
             </span>
           </div>
         </div>
-        <span></span>
         <div className="flex my-3">
-          {blog.Tags.map((tag) => (
-            <span
-              className="rounded-full px-5 py-1 bg-indigo-500 text-white text-xs"
-              key={tag.Topic}
-            >
-              {tag.Topic}
-            </span>
-          ))}
+          {blog.Tags.map((tag) => {
+            const color = colors.find(
+              (color) => color.name.toLowerCase() == tag.Topic.toLowerCase()
+            );
+            return (
+              <span
+                className={`inline-block rounded-full px-5 py-1 text-white text-xs ${styles.chips}`}
+                style={{ backgroundColor: color.color }}
+                key={tag.Topic}
+              >
+                {tag.Topic}
+              </span>
+            );
+          })}
         </div>
         <div className="my-7">
           <Image
