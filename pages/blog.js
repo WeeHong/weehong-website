@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import colors from "../data/programming-color.json";
 import styles from "../styles/Blog.module.css";
 
 const Blog = ({ content: blogs }) => {
@@ -46,14 +47,23 @@ const Blog = ({ content: blogs }) => {
                     />
                     <div className="p-5">
                       <div className="flex mb-3">
-                        {content.Tags.map((tag) => (
-                          <span
-                            className="rounded-full px-5 py-1 bg-indigo-500 text-white text-xs"
-                            key={tag.Topic}
-                          >
-                            {tag.Topic}
-                          </span>
-                        ))}
+                        {content.Tags.map((tag) => {
+                          const color = colors.find(
+                            (color) =>
+                              color.name.toLowerCase() ==
+                              tag.Topic.toLowerCase()
+                          );
+                          console.log("Color: ", color);
+                          return (
+                            <span
+                              className="rounded-full px-5 py-1 text-white text-xs"
+                              style={{ backgroundColor: color.color }}
+                              key={tag.Topic}
+                            >
+                              {tag.Topic}
+                            </span>
+                          );
+                        })}
                       </div>
                       <div className={styles.titleBg}>
                         <Link href={"/blogs/" + content.Slug} passHref>
