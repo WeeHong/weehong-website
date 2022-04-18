@@ -61,5 +61,9 @@
   margin: 0.75rem 0;
 }
 
+.markdown a {
+  color: rgb(37 99 235);
+}
+
 @media (max-width: 600px) {
 }

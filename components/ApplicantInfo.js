@@ -41,9 +41,9 @@ const ApplicantInfo = ({ content }) => {
                   <dt className="font-noto text-sm font-medium text-gray-500">
                     Email address
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900">
+                  <dd className="font-ibm mt-1 text-sm">
                     <a
-                      className="text-accent"
+                      className="text-blue-600"
                       href="mailto:weehongkane@gmail.com"
                     >
                       {content.Email}

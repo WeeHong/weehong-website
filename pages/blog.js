@@ -77,7 +77,7 @@ const Blog = ({ content: blogs }) => {
                     <div className="flex justify-end mt-auto mb-5 pt-5 px-5">
                       <Link href={"/blogs/" + content.Slug}>
                         <a
-                          className="text-white bg-indigo-700 hover:bg-indigo-800
+                          className="text-white bg-indigo-500 hover:bg-indigo-800
                       focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg
                       text-sm px-3 py-2 text-center inline-flex items-center"
                         >
