@@ -35,7 +35,7 @@ const Blog = ({ content: blogs }) => {
                 const content = blog.attributes;
                 return (
                   <div
-                    className="flex flex-col bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5"
+                    className="flex flex-col bg-white shadow-md border border-gray-200 rounded-lg max-w-full md:max-w-sm mb-5 overflow-hidden"
                     key={`${blog.id}-${content.Slug}`}
                   >
                     <Image
