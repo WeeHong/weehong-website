@@ -35,7 +35,7 @@ const Blog = ({ content: blogs }) => {
                 const content = blog.attributes;
                 return (
                   <div
-                    className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5"
+                    className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 relative"
                     key={`${blog.id}-${content.Slug}`}
                   >
                     <Image
@@ -71,19 +71,21 @@ const Blog = ({ content: blogs }) => {
                           </h5>
                         </Link>
                       </div>
-                      <p className="font-normal text-gray-700 mb-3">
-                        {content.ShortDescription}
-                      </p>
-                      <div className="flex justify-end mt-5">
-                        <Link href={"/blogs/" + content.Slug}>
-                          <a
-                            className="text-white bg-indigo-700 hover:bg-indigo-800
+                      <div className="h-full">
+                        <p className="font-normal text-gray-700 mb-3">
+                          {content.ShortDescription}
+                        </p>
+                        <div className="flex justify-end mt-5 relative b-5 r-5">
+                          <Link href={"/blogs/" + content.Slug}>
+                            <a
+                              className="text-white bg-indigo-700 hover:bg-indigo-800
                       focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg
                       text-sm px-3 py-2 text-center inline-flex items-center"
-                          >
-                            Read more
-                          </a>
-                        </Link>
+                            >
+                              Read more
+                            </a>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

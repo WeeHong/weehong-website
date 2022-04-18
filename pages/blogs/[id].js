@@ -79,7 +79,7 @@ const Blog = ({ content }) => {
                   return (
                     <div className="image">
                       <Image
-                        src={`/images/${image.properties.src}`}
+                        src={image.properties.src}
                         alt={image.properties.alt}
                         width="600"
                         height="300"
