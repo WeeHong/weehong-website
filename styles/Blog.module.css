@@ -7,13 +7,17 @@
   padding: 4rem;
 }
 
+.details {
+  max-width: 1024px;
+}
+
 .titleBg {
   background-image: url("../public/images/title-bg.webp");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: top left;
+  background-position: top;
+  background-position-x: 0.75rem;
   width: 100%;
-  height: 100%;
   z-index: 0;
 }
 
@@ -35,6 +39,12 @@
 .markdown h5 {
   font-family: "IBM Plex Mono", monospace;
   font-weight: bold;
+  background-image: url("../public/images/title-bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top left;
+  width: 100%;
+  z-index: 0;
 }
 
 .markdown h1 {

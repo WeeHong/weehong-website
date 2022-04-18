@@ -30,12 +30,12 @@ const Blog = ({ content: blogs }) => {
         <main className={`w-full ${styles.container} ${styles.main}`}>
           <h1 className="text-4xl font-ibm font-bold mb-10">Blogs</h1>
           {blogs.length > 0 ? (
-            <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               {blogs.map((blog) => {
                 const content = blog.attributes;
                 return (
                   <div
-                    className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 relative"
+                    className="flex flex-col bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5"
                     key={`${blog.id}-${content.Slug}`}
                   >
                     <Image
@@ -45,48 +45,45 @@ const Blog = ({ content: blogs }) => {
                       height="50"
                       layout="responsive"
                     />
-                    <div className="p-5">
-                      <div className="flex mb-3">
-                        {content.Tags.map((tag) => {
-                          const color = colors.find(
-                            (color) =>
-                              color.name.toLowerCase() ==
-                              tag.Topic.toLowerCase()
-                          );
-                          return (
-                            <span
-                              className={`inline-block rounded-full px-5 py-1 text-white text-xs ${styles.chips}`}
-                              style={{ backgroundColor: color.color }}
-                              key={tag.Topic}
-                            >
-                              {tag.Topic}
-                            </span>
-                          );
-                        })}
-                      </div>
-                      <div className={styles.titleBg}>
-                        <Link href={"/blogs/" + content.Slug} passHref>
-                          <h5 className="font-ibm text-gray-900 font-bold text-2xl tracking-tight mb-2">
-                            {content.Title}
-                          </h5>
-                        </Link>
-                      </div>
-                      <div className="h-full">
-                        <p className="font-normal text-gray-700 mb-3">
-                          {content.ShortDescription}
-                        </p>
-                        <div className="flex justify-end mt-5 relative b-5 r-5">
-                          <Link href={"/blogs/" + content.Slug}>
-                            <a
-                              className="text-white bg-indigo-700 hover:bg-indigo-800
+                    <div className="flex mb-3 px-5 pt-5">
+                      {content.Tags.map((tag) => {
+                        const color = colors.find(
+                          (color) =>
+                            color.name.toLowerCase() == tag.Topic.toLowerCase()
+                        );
+                        return (
+                          <span
+                            className={`inline-block rounded-full px-5 py-1 text-white text-xs ${styles.chips}`}
+                            style={{ backgroundColor: color.color }}
+                            key={tag.Topic}
+                          >
+                            {tag.Topic}
+                          </span>
+                        );
+                      })}
+                    </div>
+                    <div className={`${styles.titleBg} px-5`}>
+                      <Link href={"/blogs/" + content.Slug} passHref>
+                        <h5 className="font-ibm text-gray-900 font-bold text-2xl tracking-tight mb-2 cursor-pointer">
+                          {content.Title}
+                        </h5>
+                      </Link>
+                    </div>
+                    <div className="px-5">
+                      <p className="font-normal text-gray-700 mb-3">
+                        {content.ShortDescription}
+                      </p>
+                    </div>
+                    <div className="flex justify-end mt-auto mb-5 pt-5 px-5">
+                      <Link href={"/blogs/" + content.Slug}>
+                        <a
+                          className="text-white bg-indigo-700 hover:bg-indigo-800
                       focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg
                       text-sm px-3 py-2 text-center inline-flex items-center"
-                            >
-                              Read more
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
+                        >
+                          Read more
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 );

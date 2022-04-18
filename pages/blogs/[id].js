@@ -13,7 +13,7 @@ import styles from "../../styles/Blog.module.css";
 const Blog = ({ content }) => {
   const { attributes: blog } = content;
   return (
-    <div>
+    <div className="flex justify-center">
       <Head>
         <title>Wee Hong KOH - {blog.Title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -30,20 +30,19 @@ const Blog = ({ content }) => {
           site_name: `Wee Hong KOH - ${blog.Title}`,
         }}
       />
-      <main className={`w-full ${styles.container} ${styles.main}`}>
-        <div className="flex flex-col sm:flex-row">
-          <div className="flex flex-col flex-1">
-            <h1 className="text-4xl font-bold font-ibm">{blog.Title}</h1>
-            <h2 className="text-2xl font-ibm my-4 sm:my-2">
-              {blog.ShortDescription}
-            </h2>
-          </div>
-          <div className="flex items-end">
-            <span className="font-ibm text-sm text-gray-600">
-              Created At:{" "}
-              {moment(new Date(blog.createdAt)).format("DD MMM YYYY")}
-            </span>
-          </div>
+      <main
+        className={`w-full ${styles.container} ${styles.main} ${styles.details}`}
+      >
+        <div className="flex flex-col">
+          <span className="font-ibm text-sm text-gray-600 mb-2">
+            Created At: {moment(new Date(blog.createdAt)).format("DD MMM YYYY")}
+          </span>
+          <h1 className={`text-4xl font-bold font-ibm ${styles.titleBg}`}>
+            {blog.Title}
+          </h1>
+          <h2 className="text-2xl font-ibm my-4 sm:my-2">
+            {blog.ShortDescription}
+          </h2>
         </div>
         <div className="flex my-3">
           {blog.Tags.map((tag) => {
