@@ -37,15 +37,13 @@ const Blog = ({ content: blogs }) => {
                     className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5"
                     key={`${blog.id}-${content.Slug}`}
                   >
-                    <a href="#">
-                      <Image
-                        src={content.Image}
-                        alt={`${content.Slug}-image`}
-                        width="100%"
-                        height="50"
-                        layout="responsive"
-                      />
-                    </a>
+                    <Image
+                      src={content.Image}
+                      alt={`${content.Slug}-image`}
+                      width="100%"
+                      height="50"
+                      layout="responsive"
+                    />
                     <div className="p-5">
                       <div className="flex mb-3">
                         {content.Tags.map((tag) => (
