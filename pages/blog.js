@@ -30,7 +30,7 @@ const Blog = ({ content: blogs }) => {
         <main className={`w-full ${styles.container} ${styles.main}`}>
           <h1 className="text-4xl font-ibm font-bold mb-10">Blogs</h1>
           {blogs.length > 0 ? (
-            <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-2 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {blogs.map((blog) => {
                 const content = blog.attributes;
                 return (
