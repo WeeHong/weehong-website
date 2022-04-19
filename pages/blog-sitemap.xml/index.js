@@ -1,6 +1,6 @@
 import { getServerSideSitemap } from "next-sitemap";
 
-export const GetServerSideProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const blogs = await Axios.get(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs`,
     {
