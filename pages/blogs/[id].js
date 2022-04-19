@@ -21,7 +21,7 @@ const Blog = ({ content }) => {
 
       <NextSeo
         title={`Wee Hong KOH - ${blog.Title}`}
-        description="Wee Hong enjoys to writing code while learning new knowledge and write it into an article."
+        description={blog.ShortDescription}
         canonical={`https://www.weehong.me/${blog.Slug}`}
         openGraph={{
           url: `https://www.weehong.me/${blog.Slug}`,
@@ -101,6 +101,17 @@ const Blog = ({ content }) => {
                   <SyntaxHighlighter style={materialDark} language={language}>
                     {content}
                   </SyntaxHighlighter>
+                );
+              },
+              blockquote({ node }) {
+                const content = node.children[1].children[0].value;
+
+                return (
+                  <div
+                    className={`border-l-4 border-gray-700 px-7 py-5 whitespace-pre-line ${styles.blockquote}`}
+                  >
+                    {content}
+                  </div>
                 );
               },
             }}

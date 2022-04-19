@@ -74,6 +74,24 @@
   color: rgb(37 99 235);
 }
 
+.markdown .blockquote {
+  background-color: lightgray;
+  position: relative;
+}
+
+.markdown .blockquote::before,
+.markdown .blockquote::after {
+  content: '"';
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 2rem;
+}
+
+.markdown .blockquote::before {
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+}
+
 @media (max-width: 600px) {
   .main {
     padding: 1rem;
