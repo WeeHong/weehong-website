@@ -60,13 +60,12 @@ const Blog = ({ content }) => {
             );
           })}
         </div>
-        <div className="my-7">
+        <div className="w-full h-136 relative my-7">
           <Image
             src={blog.Image}
             alt={`${blog.Slug}-image`}
-            width="100%"
-            height="50"
-            layout="responsive"
+            layout="fill"
+            objectFit="contain"
           />
         </div>
         <div className={styles.markdown}>
@@ -76,12 +75,12 @@ const Blog = ({ content }) => {
                 if (node.children[0].tagName === "img") {
                   const image = node.children[0];
                   return (
-                    <div className="image">
+                    <div className="w-full h-136 relative">
                       <Image
                         src={image.properties.src}
                         alt={image.properties.alt}
-                        width="600"
-                        height="300"
+                        layout="fill"
+                        objectFit="contain"
                       />
                     </div>
                   );

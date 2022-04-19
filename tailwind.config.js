@@ -12,6 +12,9 @@ module.exports = {
         noto: ["'Noto Sans'", "sans-serif"],
         ibm: ["'IBM Plex Mono'", "monospace"],
       },
+      height: {
+        136: "38rem",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
