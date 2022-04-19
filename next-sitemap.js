@@ -10,7 +10,6 @@ module.exports = {
         allow: "/",
       },
     ],
-    additionalSitemaps: [`${siteUrl}/blog-sitemap.xml`],
   },
   sitemapSize: 7000,
 };
