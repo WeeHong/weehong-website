@@ -91,7 +91,9 @@ const Blog = ({ content }) => {
               },
               pre({ node }) {
                 const content = node.children[0].children[0].value;
-                const languages = node.children[0].properties.className[0];
+                const languages =
+                  node.children[0].properties.className &&
+                  node.children[0].properties.className[0];
                 // Removing "language-" because React-Markdown already added "language-"
                 const language =
                   languages && languages.replace("language-", "");
