@@ -20,7 +20,7 @@ const Blog = ({ content: blogs }) => {
         canonical="https://www.weehong.me/blog"
         openGraph={{
           url: "https://www.weehong.me/blog",
-          title: "Wee Hong KOH - Blog",
+          title: "Wee Hong KOH - Blog space to share my learning and knowledge",
           description:
             "Wee Hong enjoys to writing code while learning new knowledge and write it into an article.",
           site_name: `Wee Hong KOH - Blog`,
