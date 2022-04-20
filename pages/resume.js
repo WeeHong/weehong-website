@@ -31,6 +31,7 @@ const Resume = ({ content }) => {
           title: "Wee Hong KOH - Working Experience",
           description: `${seoDescription}`,
           site_name: `Wee Hong KOH - Working Experience`,
+          type: "website",
         }}
       />
 

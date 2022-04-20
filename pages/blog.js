@@ -24,6 +24,7 @@ const Blog = ({ content: blogs }) => {
           description:
             "Wee Hong enjoys to writing code while learning new knowledge and write it into an article.",
           site_name: `Wee Hong KOH - Blog`,
+          type: "article",
         }}
       />
       <div className="flex justify-center">

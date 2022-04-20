@@ -29,6 +29,7 @@ const Blog = ({ content }) => {
           description: `${blog.ShortDescription}`,
           site_name: `Wee Hong KOH - ${blog.Title}`,
           image: `${blog.Image}`,
+          type: "article",
         }}
       />
       <main

@@ -27,6 +27,7 @@ const Home = ({ languages, content }) => {
           title: `${data.Name} - ${data.Title}`,
           description: `${data.Description}`,
           site_name: `${data.Name} - ${data.Title}`,
+          type: "website",
         }}
       />
 
