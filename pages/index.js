@@ -20,7 +20,7 @@ const Home = ({ languages, content }) => {
 
       <NextSeo
         title={`${data.Name} - ${data.Title}`}
-        description={`${data.Name} - ${data.Title}`}
+        description={data.Description}
         canonical="https://www.weehong.me/"
         openGraph={{
           url: "https://www.weehong.me/",
