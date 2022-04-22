@@ -10,5 +10,6 @@ module.exports = {
         allow: "/",
       },
     ],
+    additionalSitemaps: [`${siteUrl}/sitemap-0.xml`],
   },
 };
