@@ -20,14 +20,14 @@ const Blog = ({ content }) => {
       </Head>
 
       <NextSeo
-        title={`Wee Hong KOH - ${blog.Title}`}
+        title={`${blog.Title}`}
         description={blog.ShortDescription}
         canonical={`https://www.weehong.me/blogs/${blog.Slug}`}
         openGraph={{
           url: `https://www.weehong.me/blogs/${blog.Slug}`,
           title: `Wee Hong KOH - ${blog.Title}`,
           description: `${blog.ShortDescription}`,
-          site_name: `Wee Hong KOH - ${blog.Title}`,
+          site_name: `${blog.Title}`,
           image: `${blog.Image}`,
           type: "article",
         }}
