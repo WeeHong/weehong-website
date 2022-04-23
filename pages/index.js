@@ -67,6 +67,7 @@ const Home = ({ content }) => {
                 data.Languages.map((v) => {
                   return (
                     <div
+                      key={v.Name.toLowerCase()}
                       className={`text-sm px-5 py-1 rounded-full ${
                         v.Name === "JavaScript" ? "text-gray-700" : "text-white"
                       }`}
