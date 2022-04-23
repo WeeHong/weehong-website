@@ -2,7 +2,7 @@ import Axios from "axios";
 
 export default async function handler(req, res) {
   const data = await Axios.get(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/about?populate=Attachments`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/about?populate=Attachments&populate=Languages`,
     {
       headers: {
         "Content-Type": "application/json",

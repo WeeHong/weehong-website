@@ -7,9 +7,8 @@ import LinkedIn from "../icons/LinkedIn";
 import Medium from "../icons/Medium";
 import styles from "../styles/Home.module.css";
 
-const Home = ({ languages, content }) => {
+const Home = ({ content }) => {
   const { attributes: data } = content;
-  // const { langs, totalLanguageSize } = useLanguages(languages, [], 5);
   return (
     <div>
       <Head>
@@ -63,18 +62,21 @@ const Home = ({ languages, content }) => {
                 <Medium width="50" height="50" />
               </a>
             </div>
-            {/* <div className="flex justify-center items-center px-8 py-5 rounded mt-5 bg-white/50 shadow w-full md:w-auto">
-              <div>
-                <h3 className="font-ibm mb-7">
-                  Most Used Programming Languages
-                </h3>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: renderLayout(langs, 300, totalLanguageSize),
-                  }}
-                />
-              </div>
-            </div> */}
+            <div className="flex justify-center gap-3 mt-5">
+              {data.Languages &&
+                data.Languages.map((v) => {
+                  return (
+                    <div
+                      className={`text-sm px-5 py-1 rounded-full ${
+                        v.Name === "JavaScript" ? "text-gray-700" : "text-white"
+                      }`}
+                      style={{ backgroundColor: v.URL }}
+                    >
+                      {v.Name}
+                    </div>
+                  );
+                })}
+            </div>
           </div>
           <div className="relative col-span-2 mt-5 md:mt-0">
             <div>
@@ -99,74 +101,14 @@ export const getServerSideProps = async ({ req, res }) => {
     "public, s-maxage=10, stale-while-revalidate=59"
   );
 
-  // const exclude_repo = [];
-
-  // const githubStats = Axios.post(
-  //   `${process.env.NEXT_PUBLIC_BASE_URL}/api/github`,
-  //   {
-  //     username: process.env.GITHUB_USER,
-  //     url: process.env.GITHUB_API_URL,
-  //     token: process.env.GITHUB_PERSONAL_TOKEN,
-  //   }
-  // );
-
   const strapiContent = Axios.get(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/about`
   );
 
-  // const [githubResp, strapiResp] = await Axios.all([
-  //   githubStats,
-  //   strapiContent,
-  // ]);
-
   const [strapiResp] = await Axios.all([strapiContent]);
-
-  // let repoNodes = githubResp.data.data;
-  // let repoToHide = {};
-
-  // if (exclude_repo) {
-  //   exclude_repo.forEach((repoName) => {
-  //     repoToHide[repoName] = true;
-  //   });
-  // }
-
-  // repoNodes = repoNodes
-  //   .sort((a, b) => b.size - a.size)
-  //   .filter((name) => {
-  //     return !repoToHide[name.name];
-  //   });
-
-  // repoNodes = repoNodes
-  //   .filter((node) => {
-  //     return node.languages.edges.length > 0;
-  //   })
-  //   .reduce((acc, curr) => curr.languages.edges.concat(acc), [])
-  //   .reduce((acc, prev) => {
-  //     let langSize = prev.size;
-
-  //     if (acc[prev.node.name] && prev.node.name === acc[prev.node.name].name) {
-  //       langSize = prev.size + acc[prev.node.name].size;
-  //     }
-  //     return {
-  //       ...acc,
-  //       [prev.node.name]: {
-  //         name: prev.node.name,
-  //         color: prev.node.color,
-  //         size: langSize,
-  //       },
-  //     };
-  //   }, {});
-
-  // const topLangs = Object.keys(repoNodes)
-  //   .sort((a, b) => repoNodes[b].size - repoNodes[a].size)
-  //   .reduce((result, key) => {
-  //     result[key] = repoNodes[key];
-  //     return result;
-  //   }, {});
 
   return {
     props: {
-      // languages: topLangs,
       content: strapiResp.data.data,
     },
   };
