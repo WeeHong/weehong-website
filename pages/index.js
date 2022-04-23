@@ -2,7 +2,7 @@ import Axios from "axios";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import ApplicationInfo from "../components/ApplicantInfo";
-import { renderLayout, useLanguages } from "../components/GitHubStats";
+import { useLanguages } from "../components/GitHubStats";
 import GitHub from "../icons/GitHub";
 import LinkedIn from "../icons/LinkedIn";
 import Medium from "../icons/Medium";
@@ -64,7 +64,7 @@ const Home = ({ languages, content }) => {
                 <Medium width="50" height="50" />
               </a>
             </div>
-            <div className="flex justify-center items-center px-8 py-5 rounded mt-5 bg-white/50 shadow w-full md:w-auto">
+            {/* <div className="flex justify-center items-center px-8 py-5 rounded mt-5 bg-white/50 shadow w-full md:w-auto">
               <div>
                 <h3 className="font-ibm mb-7">
                   Most Used Programming Languages
@@ -75,7 +75,7 @@ const Home = ({ languages, content }) => {
                   }}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="relative col-span-2 mt-5 md:mt-0">
             <div>
@@ -100,72 +100,74 @@ export const getServerSideProps = async ({ req, res }) => {
     "public, s-maxage=10, stale-while-revalidate=59"
   );
 
-  const exclude_repo = [];
+  // const exclude_repo = [];
 
-  const githubStats = Axios.post(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/github`,
-    {
-      username: process.env.GITHUB_USER,
-      url: process.env.GITHUB_API_URL,
-      token: process.env.GITHUB_PERSONAL_TOKEN,
-    }
-  );
+  // const githubStats = Axios.post(
+  //   `${process.env.NEXT_PUBLIC_BASE_URL}/api/github`,
+  //   {
+  //     username: process.env.GITHUB_USER,
+  //     url: process.env.GITHUB_API_URL,
+  //     token: process.env.GITHUB_PERSONAL_TOKEN,
+  //   }
+  // );
 
   const strapiContent = Axios.get(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/about`
   );
 
-  const [githubResp, strapiResp] = await Axios.all([
-    githubStats,
-    strapiContent,
-  ]);
+  // const [githubResp, strapiResp] = await Axios.all([
+  //   githubStats,
+  //   strapiContent,
+  // ]);
 
-  let repoNodes = githubResp.data.data;
-  let repoToHide = {};
+  const [strapiResp] = await Axios.all([strapiContent]);
 
-  if (exclude_repo) {
-    exclude_repo.forEach((repoName) => {
-      repoToHide[repoName] = true;
-    });
-  }
+  // let repoNodes = githubResp.data.data;
+  // let repoToHide = {};
 
-  repoNodes = repoNodes
-    .sort((a, b) => b.size - a.size)
-    .filter((name) => {
-      return !repoToHide[name.name];
-    });
+  // if (exclude_repo) {
+  //   exclude_repo.forEach((repoName) => {
+  //     repoToHide[repoName] = true;
+  //   });
+  // }
 
-  repoNodes = repoNodes
-    .filter((node) => {
-      return node.languages.edges.length > 0;
-    })
-    .reduce((acc, curr) => curr.languages.edges.concat(acc), [])
-    .reduce((acc, prev) => {
-      let langSize = prev.size;
+  // repoNodes = repoNodes
+  //   .sort((a, b) => b.size - a.size)
+  //   .filter((name) => {
+  //     return !repoToHide[name.name];
+  //   });
 
-      if (acc[prev.node.name] && prev.node.name === acc[prev.node.name].name) {
-        langSize = prev.size + acc[prev.node.name].size;
-      }
-      return {
-        ...acc,
-        [prev.node.name]: {
-          name: prev.node.name,
-          color: prev.node.color,
-          size: langSize,
-        },
-      };
-    }, {});
+  // repoNodes = repoNodes
+  //   .filter((node) => {
+  //     return node.languages.edges.length > 0;
+  //   })
+  //   .reduce((acc, curr) => curr.languages.edges.concat(acc), [])
+  //   .reduce((acc, prev) => {
+  //     let langSize = prev.size;
 
-  const topLangs = Object.keys(repoNodes)
-    .sort((a, b) => repoNodes[b].size - repoNodes[a].size)
-    .reduce((result, key) => {
-      result[key] = repoNodes[key];
-      return result;
-    }, {});
+  //     if (acc[prev.node.name] && prev.node.name === acc[prev.node.name].name) {
+  //       langSize = prev.size + acc[prev.node.name].size;
+  //     }
+  //     return {
+  //       ...acc,
+  //       [prev.node.name]: {
+  //         name: prev.node.name,
+  //         color: prev.node.color,
+  //         size: langSize,
+  //       },
+  //     };
+  //   }, {});
+
+  // const topLangs = Object.keys(repoNodes)
+  //   .sort((a, b) => repoNodes[b].size - repoNodes[a].size)
+  //   .reduce((result, key) => {
+  //     result[key] = repoNodes[key];
+  //     return result;
+  //   }, {});
 
   return {
     props: {
-      languages: topLangs,
+      // languages: topLangs,
       content: strapiResp.data.data,
     },
   };
