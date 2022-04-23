@@ -28,7 +28,8 @@
 .markdown li {
   list-style: disc;
   margin: 0.75rem 0 0.75rem 1rem;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 300;
   text-align: justify;
 }
 
@@ -57,7 +58,8 @@
 }
 
 .markdown p {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 300;
   font-size: 1rem;
   margin: 1rem 0;
   line-height: 1.75rem;

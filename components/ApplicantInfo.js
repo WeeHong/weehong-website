@@ -19,29 +19,29 @@ const ApplicantInfo = ({ content }) => {
               <div className={styles.titleBg}></div>
               <h2
                 id="applicant-information-title"
-                className="font-noto text-lg leading-6 font-medium text-gray-900  relative z-10"
+                className="font-ibm text-lg leading-6 font-medium text-gray-900  relative z-10"
               >
                 Applicant Information
               </h2>
-              <p className="font-ibm mt-1 max-w-2xl text-sm text-gray-500  relative z-10">
+              <p className="font-lexend-deca mt-1 max-w-2xl text-sm text-gray-500  relative z-10">
                 Personal details and application.
               </p>
             </div>
             <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
               <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                 <div className="sm:col-span-1">
-                  <dt className="font-noto text-sm font-medium text-gray-500">
+                  <dt className="font-ibm text-sm font-medium text-gray-500">
                     Position
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900">
+                  <dd className="font-lexend-deca mt-1 text-sm text-gray-900">
                     {content.Title}
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
-                  <dt className="font-noto text-sm font-medium text-gray-500">
+                  <dt className="font-ibm text-sm font-medium text-gray-500">
                     Email address
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm">
+                  <dd className="font-lexend-deca mt-1 text-sm">
                     <a
                       className="text-blue-600"
                       href="mailto:weehongkane@gmail.com"
@@ -51,34 +51,34 @@ const ApplicantInfo = ({ content }) => {
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
-                  <dt className="font-noto text-sm font-medium text-gray-500">
+                  <dt className="font-ibm text-sm font-medium text-gray-500">
                     Nationality
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900">
+                  <dd className="font-lexend-deca mt-1 text-sm text-gray-900">
                     {content.Nationality}
                   </dd>
                 </div>
                 <div className="sm:col-span-1">
-                  <dt className="font-noto text-sm font-medium text-gray-500">
+                  <dt className="font-ibm text-sm font-medium text-gray-500">
                     Education
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900">
+                  <dd className="font-lexend-deca mt-1 text-sm text-gray-900">
                     {content.Education}
                   </dd>
                 </div>
                 <div className="sm:col-span-2">
-                  <dt className="font-noto text-sm font-medium text-gray-500">
+                  <dt className="font-ibm text-sm font-medium text-gray-500">
                     About
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900 whitespace-pre-line">
+                  <dd className="font-lexend-deca mt-1 text-sm text-gray-900 whitespace-pre-line">
                     {content.Description}
                   </dd>
                 </div>
                 <div className="sm:col-span-2">
-                  <dt className="font-noto text-sm font-medium text-gray-500">
+                  <dt className="font-ibm text-sm font-medium text-gray-500">
                     Attachments
                   </dt>
-                  <dd className="font-ibm mt-1 text-sm text-gray-900">
+                  <dd className="font-lexend-deca mt-1 text-sm text-gray-900">
                     <ul
                       role="list"
                       className="border border-gray-200 rounded-md divide-y divide-gray-200"

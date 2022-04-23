@@ -37,7 +37,7 @@ const Home = ({ languages, content }) => {
             className={`flex flex-col justify-center items-center relative ${styles.introBg}`}
           >
             <h1 className="text-4xl font-ibm font-bold my-2">{data.Name}</h1>
-            <h2 className="text-2xl font-ibm">{data.Title}</h2>
+            <h2 className="text-2xl font-lexend-deca">{data.Title}</h2>
             <div className="flex mt-5">
               <a
                 className="text-accent hover:text-yellow-500"
