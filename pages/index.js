@@ -2,7 +2,6 @@ import Axios from "axios";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import ApplicationInfo from "../components/ApplicantInfo";
-import { useLanguages } from "../components/GitHubStats";
 import GitHub from "../icons/GitHub";
 import LinkedIn from "../icons/LinkedIn";
 import Medium from "../icons/Medium";
@@ -10,7 +9,7 @@ import styles from "../styles/Home.module.css";
 
 const Home = ({ languages, content }) => {
   const { attributes: data } = content;
-  const { langs, totalLanguageSize } = useLanguages(languages, [], 5);
+  // const { langs, totalLanguageSize } = useLanguages(languages, [], 5);
   return (
     <div>
       <Head>
