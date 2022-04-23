@@ -15,6 +15,9 @@ const Blog = ({ content: blogs }) => {
       </Head>
 
       <NextSeo
+        url={`https://www.weehong.me/blogs/${blog.Slug}`}
+        type="blog"
+        image={blog.Image}
         title="Wee Hong KOH - Blog"
         description="Wee Hong enjoys to writing code while learning new knowledge and write it into an article."
         canonical="https://www.weehong.me/blog"
@@ -27,6 +30,7 @@ const Blog = ({ content: blogs }) => {
           type: "article",
         }}
       />
+
       <div className="flex justify-center">
         <main className={`w-full ${styles.container} ${styles.main}`}>
           <h1 className="text-4xl font-ibm font-bold mb-10">Blogs</h1>

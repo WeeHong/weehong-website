@@ -1,6 +1,6 @@
 import Axios from "axios";
 import moment from "moment";
-import { NextSeo } from "next-seo";
+import { ArticleJsonLd, NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
@@ -22,6 +22,9 @@ const Blog = ({ content }) => {
       <NextSeo
         title={`${blog.Title}`}
         description={blog.ShortDescription}
+        url={`https://www.weehong.me/blogs/${blog.Slug}`}
+        type="blog"
+        image={blog.Image}
         canonical={`https://www.weehong.me/blogs/${blog.Slug}`}
         openGraph={{
           url: `https://www.weehong.me/blogs/${blog.Slug}`,
@@ -32,6 +35,18 @@ const Blog = ({ content }) => {
           type: "article",
         }}
       />
+
+      <ArticleJsonLd
+        type="blog"
+        url={`https://www.weehong.me/blogs/${blog.Slug}`}
+        title={`${blog.Title}`}
+        image={blog.Image}
+        datePublished={blog.createdAt}
+        dateModified={blog.modifiedAt}
+        author="Wee Hong KOH"
+        description={blog.ShortDescription}
+      />
+
       <main
         className={`w-full ${styles.container} ${styles.main} ${styles.details}`}
       >
