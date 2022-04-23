@@ -77,7 +77,7 @@ const Blog = ({ content }) => {
             );
           })}
         </div>
-        <div className="w-full h-136 relative my-7">
+        <div className="w-full h-80 relative my-7 md:h-136">
           <Image
             src={blog.Image}
             alt={`${blog.Slug}-image`}
@@ -92,7 +92,7 @@ const Blog = ({ content }) => {
                 if (node.children[0].tagName === "img") {
                   const image = node.children[0];
                   return (
-                    <div className="w-full h-136 relative">
+                    <div className="w-full h-80 relative md:h-136">
                       <Image
                         src={image.properties.src}
                         alt={image.properties.alt}
