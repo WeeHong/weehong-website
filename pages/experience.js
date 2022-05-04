@@ -18,28 +18,26 @@ const Resume = ({ content }) => {
   return (
     <div>
       <Head>
-        <title>Wee Hong KOH - Working Experience</title>
+        <title>Wee Hong KOH - Experience</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <NextSeo
-        title="Wee Hong KOH - Working Experience"
+        title="Wee Hong KOH - Experience"
         description={seoDescription}
         canonical="https://www.weehong.me/resume"
         openGraph={{
           url: "https://www.weehong.me/resume",
-          title: "Wee Hong KOH - Working Experience",
+          title: "Wee Hong KOH - Experience",
           description: `${seoDescription}`,
-          site_name: `Wee Hong KOH - Working Experience`,
+          site_name: `Wee Hong KOH - Experience`,
           type: "website",
         }}
       />
 
       <div className="flex justify-center">
         <main className={`${styles.container} ${styles.main}`}>
-          <h1 className="text-4xl font-ibm font-bold mb-10">
-            Working Experience
-          </h1>
+          <h1 className="text-4xl font-ibm font-bold mb-10">Experience</h1>
           <div>
             <ul role="list" className="divide-y divide-gray-200">
               {resumes.map((resume) => (

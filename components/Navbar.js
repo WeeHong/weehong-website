@@ -7,15 +7,15 @@ import { forwardRef } from "react";
 const navigations = [
   { id: "about", name: "About", href: "/", current: true },
   {
-    id: "blog",
-    name: "Blog",
-    href: "/blog",
+    id: "article",
+    name: "Article",
+    href: "/article",
     current: false,
   },
   {
-    id: "working-experience",
-    name: "Working Experience",
-    href: "/resume",
+    id: "experience",
+    name: "Experience",
+    href: "/experience",
     current: false,
   },
 ];

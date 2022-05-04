@@ -10,7 +10,7 @@ import remarkGfm from "remark-gfm";
 import colors from "../../data/programming-color.json";
 import styles from "../../styles/Blog.module.css";
 
-const Blog = ({ content }) => {
+const Article = ({ content }) => {
   const { attributes: blog } = content;
   return (
     <div className="flex justify-center">
@@ -22,12 +22,12 @@ const Blog = ({ content }) => {
       <NextSeo
         title={`${blog.Title}`}
         description={blog.ShortDescription}
-        url={`https://www.weehong.me/blogs/${blog.Slug}`}
-        type="blog"
+        url={`https://www.weehong.me/articles/${blog.Slug}`}
+        type="article"
         image={blog.Image}
-        canonical={`https://www.weehong.me/blogs/${blog.Slug}`}
+        canonical={`https://www.weehong.me/articles/${blog.Slug}`}
         openGraph={{
-          url: `https://www.weehong.me/blogs/${blog.Slug}`,
+          url: `https://www.weehong.me/articles/${blog.Slug}`,
           title: `Wee Hong KOH - ${blog.Title}`,
           description: `${blog.ShortDescription}`,
           site_name: `${blog.Title}`,
@@ -141,7 +141,7 @@ const Blog = ({ content }) => {
   );
 };
 
-export default Blog;
+export default Article;
 
 export const getStaticPaths = async () => {
   const blogs = await Axios.get(

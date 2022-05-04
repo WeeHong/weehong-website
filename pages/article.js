@@ -6,33 +6,33 @@ import Link from "next/link";
 import colors from "../data/programming-color.json";
 import styles from "../styles/Blog.module.css";
 
-const Blog = ({ content: blogs }) => {
+const Article = ({ content: blogs }) => {
   return (
     <div>
       <Head>
-        <title>Wee Hong KOH - Blog</title>
+        <title>Wee Hong KOH - Article</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <NextSeo
-        url={`https://www.weehong.me/blogs`}
-        type="blog"
-        title="Wee Hong KOH - Blog"
+        url={`https://www.weehong.me/article`}
+        type="article"
+        title="Wee Hong KOH - Article"
         description="Wee Hong enjoys to writing code while learning new knowledge and write it into an article."
-        canonical="https://www.weehong.me/blog"
+        canonical="https://www.weehong.me/article"
         openGraph={{
-          url: "https://www.weehong.me/blog",
-          title: "Wee Hong KOH - Blog space to share my learning and knowledge",
+          url: "https://www.weehong.me/article",
+          title: "Wee Hong KOH - A space to share my learning and knowledge",
           description:
-            "Wee Hong enjoys to writing code while learning new knowledge and write it into an article.",
-          site_name: `Wee Hong KOH - Blog`,
+            "Wee Hong KOH enjoys sharing his knowledge and insights and getting his hands dirty, including keeping them as documentation.",
+          site_name: `Wee Hong KOH - Article`,
           type: "article",
         }}
       />
 
       <div className="flex justify-center">
         <main className={`w-full ${styles.container} ${styles.main}`}>
-          <h1 className="text-4xl font-ibm font-bold mb-10">Blogs</h1>
+          <h1 className="text-4xl font-ibm font-bold mb-10">Articles</h1>
           {blogs.length > 0 ? (
             <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               {blogs.map((blog) => {
@@ -67,7 +67,7 @@ const Blog = ({ content: blogs }) => {
                       })}
                     </div>
                     <div className={`${styles.titleBg} px-5`}>
-                      <Link href={"/blogs/" + content.Slug} passHref>
+                      <Link href={"/articles/" + content.Slug} passHref>
                         <h5 className="font-ibm text-gray-900 font-bold text-2xl tracking-tight mb-2 cursor-pointer">
                           {content.Title}
                         </h5>
@@ -79,7 +79,7 @@ const Blog = ({ content: blogs }) => {
                       </p>
                     </div>
                     <div className="flex justify-end mt-auto mb-5 pt-5 px-5">
-                      <Link href={"/blogs/" + content.Slug}>
+                      <Link href={"/articles/" + content.Slug}>
                         <a
                           className="text-white bg-indigo-500 hover:bg-indigo-800
                       focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg
@@ -109,7 +109,7 @@ const Blog = ({ content: blogs }) => {
   );
 };
 
-export default Blog;
+export default Article;
 
 export const getServerSideProps = async ({ req, res }) => {
   res.setHeader(
