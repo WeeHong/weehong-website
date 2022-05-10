@@ -7,7 +7,7 @@ module.exports = {
     policies: [
       {
         userAgent: "*",
-        allow: ["/", "/*", "/article", "/resume", "/articles/*"],
+        allow: ["/", "/*", "/article", "/experience", "/articles/*"],
       },
     ],
     additionalSitemaps: [`${siteUrl}/sitemap-0.xml`],
