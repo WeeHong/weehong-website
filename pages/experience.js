@@ -25,9 +25,9 @@ const Resume = ({ content }) => {
       <NextSeo
         title="Wee Hong KOH - Experience"
         description={seoDescription}
-        canonical="https://www.weehong.me/resume"
+        canonical="https://www.weehong.me/experience"
         openGraph={{
-          url: "https://www.weehong.me/resume",
+          url: "https://www.weehong.me/experience",
           title: "Wee Hong KOH - Experience",
           description: `${seoDescription}`,
           site_name: `Wee Hong KOH - Experience`,
